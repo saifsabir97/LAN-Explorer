@@ -48,7 +48,6 @@ def port_scan_network(network_cidr):
         t = threading.Thread(target=port_scan_host, args=(host, results, nm,))
         scan_threads.append(t)
         t.start()
-        # port_scan_host(host, results, nm)
 
     for t in scan_threads:
         t.join()

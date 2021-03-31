@@ -40,5 +40,5 @@ def draw_graph(gateway, host_scan_results):
 
     plot.renderers.append(graph_renderer)
 
-    output_file("networkx_graph.html")
+    # output_file("networkx_graph.html")
     show(plot)
