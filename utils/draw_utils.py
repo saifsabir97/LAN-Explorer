@@ -1,7 +1,6 @@
 import networkx as nx
 from bokeh.models import HoverTool, Plot, Range1d, Circle, MultiLine
 from bokeh.palettes import Spectral4
-from pylab import show
 from bokeh.io import output_file, show
 from bokeh.plotting import from_networkx
 
