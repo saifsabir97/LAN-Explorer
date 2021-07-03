@@ -25,18 +25,21 @@ def get_internet_facing_subnet_mask():
 
 
 def get_internet_facing_gateway():
+    print("fetching internet facing gateway")
     gateways = ni.gateways()
     default_gateway = gateways["default"][ni.AF_INET][0]
     return default_gateway
 
 
 def get_network_cidr():
+    print("fetching internet facing network")
     my_network = netaddr.IPNetwork(get_internet_facing_ip(), get_internet_facing_subnet_mask())
     network_id = str(my_network.network) + "/" + str(my_network).split('/')[1]
     return network_id
 
 
 def port_scan_network(network_cidr):
+    print(f"port scanning {network_cidr}")
     nm = nmap.PortScanner()
     nm.scan(network_cidr, '22-443')
 
@@ -56,6 +59,7 @@ def port_scan_network(network_cidr):
 
 
 def port_scan_host(host, results, nm):
+    print(f"    scanning {host}")
     results[host] = {"ip": host, "hostname": nm[host].hostname(), "state": nm[host].state()}
     open_ports = []
     for proto in nm[host].all_protocols():
