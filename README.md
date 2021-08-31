@@ -1,5 +1,5 @@
 # LAN-Explorer
-This script scans all the active devices connected to your LAN for any non closed ports.
+This script scans all the devices connected to your LAN for any non closed ports.
 Once the scan is done, it draws an interactive topology graph with open port details for each device.
 
 Looks something like this for a network with 3 devices connected to router. The center node will be the modem to which all the connected devices are shown with an edge in between.
