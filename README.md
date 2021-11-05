@@ -1,10 +1,13 @@
 # LAN-Explorer
-This script scans all the devices connected to your LAN for any non closed ports.
+This script scans all the devices connected to your LAN for any open ports.
+
 Once the scan is done, it draws an interactive topology graph with open port details for each device.
 
-Looks something like this for a network with 3 devices connected to router. The center node will be the modem to which all the connected devices are shown with an edge in between.
-As you can see, the port 80 and 53 is open in the modem which is displayed when hovered over the node.
+## **Example 1: For a network with 3 devices connected to the router
+
+The center node will be the router. All connected edges to the center node are connected devices in LAN.
+Here, port 80 and 53 are open in the router which can be seen when hovered over the node.
 ![alt text](https://github.com/mslegion/LAN_Peeper/blob/main/screenshots/Screenshot%202021-03-31%20at%205.59.51%20PM.png)
 
-Another example!!!
+## **Example 2: Open ports in one of the connected devies
 ![alt text](https://github.com/mslegion/LAN_Peeper/blob/main/screenshots/Screenshot%202021-03-31%20at%207.17.08%20PM.png)
