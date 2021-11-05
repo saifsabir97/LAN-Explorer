@@ -1,16 +1,16 @@
 import networkx as nx
 from bokeh.models import HoverTool, Plot, Range1d, Circle, MultiLine
 from bokeh.palettes import Spectral4
-from bokeh.io import output_file, show
+from bokeh.io import show
 from bokeh.plotting import from_networkx
 
 
-def draw_graph(gateway, host_scan_results):
+def create_graph(center, results_dict):
     edges = []
 
-    for host, port_scan_result in host_scan_results.items():
-        if host != gateway:
-            edges.append((gateway, host))
+    for key, result in results_dict.items():
+        if key != center:
+            edges.append((center, result))
 
     tool_tips_list = [
         ("ip", "@ip"),
@@ -25,7 +25,7 @@ def draw_graph(gateway, host_scan_results):
         edge_attrs[(start_node, end_node)] = "black"
 
     nx.set_edge_attributes(G, edge_attrs, "edge_color")
-    nx.set_node_attributes(G, values=host_scan_results)
+    nx.set_node_attributes(G, values=results_dict)
 
     plot = Plot(plot_width=600, plot_height=600,
                 x_range=Range1d(-1.1, 1.1), y_range=Range1d(-1.1, 1.1))
@@ -39,5 +39,4 @@ def draw_graph(gateway, host_scan_results):
 
     plot.renderers.append(graph_renderer)
 
-    # output_file("networkx_graph.html")
     show(plot)
